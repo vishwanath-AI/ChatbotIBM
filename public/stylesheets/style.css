@@ -1,0 +1,205 @@
+/* style.css
+ * This file provides css styles.
+ */
+
+body,html {
+	width : 100%;
+	height: 100%;
+	margin: 0 auto;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	color: #ffffff;
+}
+
+a {
+	text-decoration: none;
+	color: #00aed1;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.newappIcon {
+	padding-top: 10%;
+	display: block;
+	margin: 0 auto;
+	padding-bottom: 2em;
+	max-width:200px;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.leftHalf {
+	float: left;
+	background-color: #26343f;
+	width: 45%;
+	height: 100%;
+}
+
+.rightHalf {
+	float: right;
+	width: 55%;
+	background-color: #313f4a;
+	height: 100%;
+	overflow:auto;
+}
+
+.blue {
+	color: #00aed1;
+}
+
+
+table {
+	table-layout: fixed;
+	width: 800px;
+	margin: 0 auto;
+	word-wrap: break-word;
+	padding-top:10%;
+}
+
+th {
+	border-bottom: 1px solid #000;
+}
+
+th, td {
+	text-align: left;
+	padding: 2px 20px;
+}
+
+.env-var {
+	text-align: right;
+	border-right: 1px solid #000;
+	width: 30%;
+}
+
+pre {
+	padding: 0;
+	margin: 0;
+}
+
+/* Override Bootstrap */
+.navbar {
+	background: #777777;
+}
+
+/* Override Bootstrap */
+.carousel-caption {
+	top: 20px;
+}
+
+#chat {
+	background: #92D050;
+	padding: 50px;
+	padding-bottom: 30px;
+}
+
+#chatbot {
+	padding: 50px;
+}
+#chatHistory {
+	background: #DAD2DA;
+	height: 100%;
+	max-height: 500px;
+	overflow: auto;
+}
+
+#chat > div > form {
+	width: 90%;
+}
+
+#workflow {
+	background: white;
+	padding: 50px;
+}
+
+#workflow > div {
+	text-align: center;
+}
+
+#details {
+	background: #DDDDDD;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#bottom {
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background: lightgray;
+}
+
+#bottom div> img {
+	height: 100px;
+}
+
+.chat-bubbles {
+	box-shadow: -10px 10px 5px gray;
+    background: orange;
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+}
+
+.centered {
+	text-align: center;
+}
+
+#chatHistory {
+	border-radius: 20px;
+	padding: 10px;
+}
+
+#chatHistory > p {
+	width: 100%;
+	border-radius: 5px;
+    height: min-content;
+    padding: 10px;
+}
+
+.chat-bubble-left {
+	background: #2c3e50;
+    color: white;
+}
+
+.chat-bubble-right {
+	text-align: right;
+	background: #92D050;
+    color: #2c3e50;
+}
+
+.loader1 {
+  border: 16px solid #f3f3f3;
+    border-radius: 120px;
+    border-top: 0px solid black;
+    /* border-right: 20px solid green; */
+    /* border-bottom: 20px solid red; */
+    border-left: 50px solid white;
+    width: 5px;
+    height: 5px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+.loader2 {
+  border: 16px solid #232121;
+    border-radius: 120px;
+    border-left: 0px solid black;
+    width: 5px;
+    height: 5px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

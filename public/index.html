@@ -1,0 +1,230 @@
+<html>
+	<head>
+	    <title>ECM Chatbot</title>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" href="stylesheets/style.css">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+		
+	</head>
+
+  <body ng-app="ecmChatbot">
+  <body onload="myFunction()" style="margin:0;">
+				
+
+	<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg" style="background: transparent;z-index: 100;">
+	  <a class="navbar-brand" href="#">
+	  	<img width="100px" src="images/nys-logo.png">
+	  </a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	      </li>
+	    </ul>
+	    <form class="form-inline my-2 my-lg-0">
+	      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+	    </form>
+	  </div>
+	</nav>
+
+	<!-- Marketing Banner (Carousel) -->
+	<div id="marketingCarousel" class="carousel slide" data-ride="carousel" style="
+    margin-top: -98px;
+    z-index: 99;
+">
+	  <div class="carousel-inner">
+	    <div class="carousel-item active">
+	      <img class="d-block w-100" src="images/marketing-banner.jpg" alt="First slide" style="height: 400px;/* margin-top: -50px; */">
+	      <div class="carousel-caption d-none d-md-block">
+		    <h3>Welcome to NYS ECM Cognitive Self-Service Assistant</h3>
+		    <h2>Content is where Knowledge lives</h2>
+		  </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Chatbot Row -->
+		
+		<div class="row" id="chat">
+		
+		<div class="col-md-12" style="display: inline-flex;justify-content: center; margin-bottom:30px;">
+			<!-- Watson Greeting -->
+			<div class="loader1"></div> 
+			<div class="loader2"></div> 
+			<div class="loader1"></div> 
+			<div class="loader2"></div> 
+			<div class="loader1"></div> 
+			<div class="loader2"></div> 
+			<div class="loader1"></div> 
+			<div class="loader2"></div> 
+			<div class="loader1"></div> 
+			<div class="loader2"></div> 
+			<div class="loader1"></div> 
+			<div class="loader2"></div> 
+			<div style="display:none;" id="myDiv" class="animate-bottom"></div>
+		</div>
+		<!-- <div class="col-md-4 centered"> 
+			<svg height="200" width="200" style="display:block; margin: 0 auto;">
+			  <circle cx="100" cy="100" r="90" stroke="black" stroke-width="3" fill="white" /> 
+			  <text x="80" y="50" fill="black">HELLO</text>
+			  <text x="60" y="100" fill="black">NYS - ITS</text>
+			  <text x="60" y="150" fill="orange">I'm Watson</text> -->
+				
+				<!--Center the loader -->
+				<!-- <div class="loader"></div> 
+				<div style="display:none;" id="myDiv" class="animate-bottom">
+				  <h2>Tada!</h2>
+				  <p>Some text in my newly loaded page..</p>
+				</div>
+				-->
+				
+			    <!-- Watson Animation -->
+			    <!--
+		        <div class="feature-chart feature-chart__left">
+		        <iframe class="chartjs-hidden-iframe" tabindex="-1" style="display: block; overflow: hidden; border: 0px; margin: 0px; top: 0px; left: 0px; bottom: 0px; right: 0px; height: 100%; width: 100%; position: absolute; pointer-events: none; z-index: -1;"></iframe>
+						<canvas id="animate-chart" height="213" width="320" style="display: block; width: 320px; height: 213px;"></canvas>
+					</div>
+				
+
+
+			  	<!-- Watson audio Greeting-->
+			  	 <div class="col-md-12 text-center">
+	      			<audio controls autoplay;">
+					<source src="media/transcript-2.mp3" type="audio/mpeg">
+	      			</audio>
+    			</div> 
+		</div> 
+
+		<!-- Chat -->
+		
+		<div class="row" id="chatbot">
+		<div class="col-md-12 text-center" style="margin-bottom: 30px;"><h2>Hello NYS, I'm your ECM COE-Bot</h2></div>
+		<div class="col-md-1"></div>
+		<div class="col-md-10" ng-controller="ChatCtrl">
+			<div class="row" id="chatHistory"></div>
+			<div class="row" >
+				<form style="width: 200%;" ng-submit="sendMessage()">
+				  <div class="form-group">
+				    <input type="text" class="form-control" id="chatInput" placeholder="How can I help you?">
+				  </div>
+				</form>
+			</div>
+		</div>
+		</div>
+
+	</div>
+
+    <!-- Mission Row -->
+    <div class="row" id="mission" style="
+        padding: 50px 200px;
+        background: #2c3e50;
+        color: #ecf0f1;
+
+    ">
+
+    <div class="col-md-7" style="">
+        	<div class="col-md-12 text-center" style="margin-bottom: 50px;"><h2>ECM Mission</h2></div>
+            <blockquote class="blockquote text-center">
+            	<p class="mb-0">The Enterprise Content Management Center of Excellence (ECM COE) team is dedicated to providing content management services to all New York State governmental entities.</p>         
+			</blockquote>
+    </div>
+    <div class="col-md-4"><img width="450px" src="images/data.jpg"/></div>
+</div>
+
+	<!-- Cloud Services Row -->
+	<div class="row" id="workflow">
+    <div class="col-md-12"><h2 style="margin-bottom: 50px;">Cloud Services</h2></div>
+    <div class="col-md-4">
+        <img class="rounded-circle" width="140px" height="140px" src="images/conversation.png">
+        <h3>Conversation</h3>
+        <p>With the Watson™ Conversation service, you can build a solution that understands natural-language input and uses machine learning to respond to customers in a way that simulates a conversation between humans.</p>
+    </div>
+    <div class="col-md-4">
+        <img class="rounded-circle" width="140px" height="140px" src="images/discovery.png">
+        <h3>Discovery</h3>
+        <p>By using data analysis combined with cognitive intuition to take your unstructured data and enrich it so you can discover the information you need. Watson™ Discovery brings together a functionally rich set of integrated, automated Watson APIs to: Crawl, convert, enrich and normalize data.</p>
+    </div>
+    <div class="col-md-4">
+        <img class="rounded-circle" width="140px" height="140px" src="images/knowledge.png">
+        <h3>Knowledge</h3>
+        <p>You can use Knowledge Center filtering capabilities to select the information that you need to use. You can build the information that you need into customized collections. For example, you might create a collection about the products that you use regularly, or a collection about a particular task, involving multiple products, that you plan to do in the coming months.</p>
+    </div>
+</div>
+
+	<!-- Integration -->
+	<div class="row text-center" style="padding: 50px;justify-content: center;background: #92D050;color: #ecf0f1;">
+    <div class="col-md-12"><h2>Integration</h2></div>
+    <img src="images/ECMChatbotArchitecture.png">
+</div>
+
+	<!-- Logos Row -->
+	<div class="row" id="bottom">
+
+		<!-- Logos -->
+		<div class="col-md-4 centered">
+			<img height="100px" alt="ITS Logo" src="images/its-logo.png">
+		</div>
+
+		<!-- Watson logo -->
+		<div class="col-md-4 centered">
+			<a href="https://console.bluemix.net/catalog/services/conversation?env_id=ibm:yp:us-south">
+				<img height="100px" src="https://www.ibm.com/blogs/bluemix/wp-content/uploads/2016/11/Watson-image-card.png">
+			</a>
+		</div>
+
+		<div class="col-md-4 centered">
+			<img height="100px" alt="Knowledge Logo" src="images/knowledge-logo.jpg">
+		</div>
+
+	</div>
+
+	<!-- scripts -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+	<script>
+		var myVar;
+		
+		function myFunction() {
+		    myVar = setTimeout(showPage, 3000);
+		}
+		
+		function showPage() {
+		  document.getElementById("loader").style.display = "none";
+		  document.getElementById("myDiv").style.display = "block";
+		}
+	</script>
+	
+	<!-- <script async src="./build.js"></script> -->
+	<!--
+	<script>
+		var module = angular.module('ecmChatbot', []);
+
+		module.controller('ChatCtrl', [
+			'$scope',
+			function ($scope) {
+				console.log('ChatCtrl was instantiated.');
+
+				$scope.foobar = 'baz';
+			}
+		]);
+	</script>
+	-->
+	
+	<script src="app.js"></script>
+	<!--
+	<script src="chat/Chat.js"></script>
+	<script src="chat/ChatCtrl.js"></script>
+	-->
+	
+
+</body></html>
